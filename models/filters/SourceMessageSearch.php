@@ -6,7 +6,6 @@
  */
 
 /**
- * Description of TranslationSearch
  *
  * @author patrick
  */
