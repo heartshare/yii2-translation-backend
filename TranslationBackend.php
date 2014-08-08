@@ -5,7 +5,6 @@
  */
 
 /**
- * Description of MenuItemsBuilder
  *
  * @author patrick
  */
