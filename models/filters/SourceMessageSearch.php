@@ -6,7 +6,7 @@
  */
 
 /**
- * Description of TranslationSearch
+ * Model used to filtering the translation gridview
  *
  * @author patrick
  */

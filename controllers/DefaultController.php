@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use backend\modules\TranslationBackend\models\filters\SourceMessageSearch;
 use backend\modules\TranslationBackend\models\Message;
+use backend\modules\TranslationBackend\models\SourceMessage;
 
 class DefaultController extends Controller
 {
@@ -40,5 +41,25 @@ class DefaultController extends Controller
 			}
 		}
 		
+	}
+
+	public function actionReset() {
+		if (!isset($_GET['id']))
+			throw new Exception('Message not found');
+
+		$allTranslatedMessage = Message::findAll([$_GET['id']]);
+
+		foreach ($allTranslatedMessage as $message) {
+			$message->reset();
+		}
+	}
+
+	public function actionDelete() {
+		if (!isset($_GET['id']))
+			throw new Exception('Message not found');
+
+		Message::deleteAll(['id' => [$_GET['id']]]);
+		SourceMessage::deleteAll(['id' => [$_GET['id']]]);
+		return $this->redirect(['index']);
 	}
 }

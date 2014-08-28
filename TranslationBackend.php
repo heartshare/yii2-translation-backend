@@ -5,7 +5,7 @@
  */
 
 /**
- * Description of MenuItemsBuilder
+ * Module for editing translation in backend
  *
  * @author patrick
  */
@@ -32,11 +32,11 @@ class TranslationBackend extends \yii\base\Module
 			}
 		}
 		
-		$this->_createLanguageColumns();
+		$this->_createGridColumns();
     }
 	
-	protected function _createLanguageColumns() {
-		$this->columns[] = 'id';
+	protected function _createGridColumns() {
+		$this->columns[] = 'category';
 		$this->columns[] = 'message';
 		
 		foreach($this->languages as $language){
@@ -59,5 +59,35 @@ class TranslationBackend extends \yii\base\Module
 				}
 			];
 		}
+
+		$this->_createGridActionsColumns();
+	}
+
+	protected function _createGridActionsColumns() {
+		$this->columns[] = [
+			'class' => 'yii\grid\ActionColumn',
+			'header' => 'Actions',
+			'buttons' => [
+				'reset' => function($url, $model) {
+					return Html::a(
+							'<span class="glyphicon glyphicon-repeat"></span>', '', [
+							'onClick' => "
+									if (confirm('Are you sure you want to reset this?')) {
+										$.ajax({
+											cache    : false,
+											url  : '" . $url . "',
+											success  : function(response) {
+												$.pjax.reload({container:'#translationGrid'});
+											},
+										});
+									}
+								",
+							'title' => Yii::t('translation_backend', 'Reset')
+						]
+					);
+				}
+			],
+			'template' => '{delete} {reset}'
+		];
 	}
 }

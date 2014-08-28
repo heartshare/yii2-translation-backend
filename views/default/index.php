@@ -1,9 +1,5 @@
 <?php
 use yii\grid\GridView;
-use yii\bootstrap\Modal;
-use yii\bootstrap\Button;
-use yii\bootstrap\ActiveForm;
-use yii\helpers\Html;
 
 $this->title = Yii::t('irip', 'Translation');
 $this->params['breadcrumbs'][] = $this->title;

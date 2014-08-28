@@ -54,4 +54,9 @@ class Message extends \yii\db\ActiveRecord
     {
         return $this->hasOne(SourceMessage::className(), ['id' => 'id']);
     }
+
+    public function reset() {
+        $this->translation = NULL;
+        $this->save(FALSE);
+    }
 }
