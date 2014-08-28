@@ -1,7 +1,7 @@
 <?php
 use yii\grid\GridView;
 
-$this->title = Yii::t('irip', 'Translation');
+$this->title = Yii::t('backend_translation', 'Translation');
 $this->params['breadcrumbs'][] = $this->title;
 
 \yii\widgets\Pjax::begin(); 
