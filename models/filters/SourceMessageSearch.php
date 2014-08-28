@@ -6,7 +6,10 @@
  */
 
 /**
+<<<<<<< HEAD
  * Model used to filtering the translation gridview
+=======
+>>>>>>> 40cccd3923d5a87e20f307c28c25a67fde260721
  *
  * @author patrick
  */
