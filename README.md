@@ -1,4 +1,4 @@
-TranslationBackend
+yii2-translation-backend
 ==================
 
 A Yii2 backend module for translation updating 
