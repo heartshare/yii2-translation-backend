@@ -41,9 +41,9 @@ class Message extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('irip_model_Message', 'ID'),
-            'language' => Yii::t('irip_model_Message', 'Language'),
-            'translation' => Yii::t('irip_model_Message', 'Translation'),
+            'id' => Yii::t('model_Message', 'ID'),
+            'language' => Yii::t('model_Message', 'Language'),
+            'translation' => Yii::t('model_Message', 'Translation'),
         ];
     }
 
