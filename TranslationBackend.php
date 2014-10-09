@@ -54,7 +54,8 @@ class TranslationBackend extends \yii\base\Module
 						'onClick' =>"$('#modal').modal('show');
 							($('#messageId').val('".addslashes($key)."'));
 							($('#messageLanguage').val('".addslashes($gridView->label)."'));
-							($('#translationText').val('".addslashes($value)."'));"
+							($('#translationText').val('".addslashes($value)."'));
+							($('#modalTitle').text('".addslashes($model->category)." - ".addslashes($model->message)."'));"
 					];
 				}
 			];
