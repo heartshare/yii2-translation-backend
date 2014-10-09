@@ -44,7 +44,7 @@ class TranslationBackend extends \yii\base\Module
 				'label' => $language,
 				'content' => function ($model, $key, $index, $gridView){
 					$query = Message::findOne(['id' => $key, 'language' => $gridView->label]);
-					return empty($query->translation)?'(Not set)':Html::a($query->translation);
+					return empty($query->translation)?'(Not set)':Html::a(Html::encode($query->translation));
 				},
 				'contentOptions' => function ($model, $key, $index, $gridView){
 					$query = Message::findOne(['id' => $model->id, 'language' => $gridView->label]);
@@ -52,9 +52,9 @@ class TranslationBackend extends \yii\base\Module
 					return [
 						'id' => $gridView->label.$model->id,
 						'onClick' =>"$('#modal').modal('show');
-							($('#messageId').val('".$key."'));
-							($('#messageLanguage').val('".$gridView->label."'));
-							($('#translationText').val('".$value."'));"
+							($('#messageId').val('".addslashes($key)."'));
+							($('#messageLanguage').val('".addslashes($gridView->label)."'));
+							($('#translationText').val('".addslashes($value)."'));"
 					];
 				}
 			];
