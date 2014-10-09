@@ -6,7 +6,7 @@ use yii\helpers\Html;
 
 
 Modal::begin([
-    'header' => '<h2>Update translation</h2>',
+    'header' => '<h2><span id="modalTitle"></span></h2>',
 	'id' => 'modal',
 ]);
 
